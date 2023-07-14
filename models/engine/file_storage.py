@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This is the File Storage module."""
 import json
-from datetime import datetime
 from os.path import isfile
 from models import *
 

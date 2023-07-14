@@ -14,7 +14,6 @@ class BaseModel():
         if kwargs:
             for k in kwargs:
                 if k == "__class__":
-                    setattr(self, k, getattr(sys.modules[__name__], kwargs[k]))
                     continue
                 if k == "created_at" or k == "updated_at":
                     setattr(self, k, datetime.fromisoformat(kwargs[k]))
