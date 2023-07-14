@@ -38,7 +38,7 @@ class BaseModel():
     def to_dict(self):
         """returns a dictionary containing all keys/values of the instance"""
         dicc = self.__dict__.copy()
-        dicc["__class__"] = "BaseModel"
+        dicc["__class__"] = str(self.__class__.__name__)
         dicc["created_at"] = str(dicc["created_at"].isoformat())
         if ("updated_at" in dicc):
             dicc["updated_at"] = str(dicc["updated_at"].isoformat())
