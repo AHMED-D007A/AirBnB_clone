@@ -7,7 +7,8 @@ from models import *
 
 class HBNBCommand(cmd.Cmd):
     """This is CLI can be used to do operations(CRUD) on the site."""
-    valid_classes = ["BaseModel"]
+    valid_classes = ["BaseModel", "User", "State", "Review",
+                     "Place", "City", "Amenity"]
     prompt = "(hbnb) "
 
     def emptyline(self):

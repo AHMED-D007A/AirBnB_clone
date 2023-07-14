@@ -33,8 +33,20 @@ class FileStorage():
     def reload(self):
         """deserializes the JSON file to __objects"""
         from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.review import Review
+        from models.place import Place
+        from models.city import City
+        from models.amenity import Amenity
         clsses = {
-            "BaseModel": BaseModel
+            "BaseModel": BaseModel,
+            "User": User,
+            "State": State,
+            "Review": Review,
+            "Place": Place,
+            "City": City,
+            "Amenity": Amenity
         }
         if isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r') as file:
