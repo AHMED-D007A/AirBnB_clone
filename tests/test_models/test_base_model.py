@@ -12,8 +12,8 @@ class Test_BaseModel(unittest.TestCase):
 
         test_args = {'created_at': datetime(2017, 9, 28, 21, 5, 54, 119427),
                      'updated_at': datetime(2017, 9, 28, 21, 5, 54, 119434),
-                     'id': 'b6a6e15c-c67d-4312-9a75-9d084935e579',
-                     'name': 'model_1'}
+                     'id': '46458416-e5d5-4985-aa48-a2b369d03d2a',
+                     'name': 'model1'}
         self.model2 = BaseModel(test_args)
         self.model2.save()
 
@@ -39,13 +39,14 @@ class Test_BaseModel(unittest.TestCase):
         self.assertNotEqual(old_time, self.model2.updated_at)
 
     def test_to_json(self):
-        jsonified = self.model2.to_json()
+        jsonified = str(self.model2)
         self.assertNotEqual(self.model2.__dict__, jsonified)
         self.assertNotIsInstance(jsonified["created_at"], datetime)
         self.assertNotIsInstance(jsonified["updated_at"], datetime)
         self.assertEqual(jsonified["created_at"], '2017-02-10 02:06:55.258849')
         self.assertTrue(hasattr(jsonified, "__class__"))
         self.assertEqual(jsonified["__class__"], "BaseModel")
+
 
 if __name__ == "__main__":
     unittest.main()
