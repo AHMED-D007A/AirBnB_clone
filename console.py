@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
 
     def do_show(self, arg):
-        """Prints the representation of an instance based on the class name\n"""
+        """Prints the representation of a instance based on the class name\n"""
         args = arg.split()
         if len(args) < 1:
             print("** class name missing **")
