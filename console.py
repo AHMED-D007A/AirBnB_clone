@@ -22,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """Quit command to exit the program\n"""
-        quit()
+        return True
 
     def do_create(self, arg):
         """Creates a new instance of classes.\n"""
