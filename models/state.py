@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """this is the State module."""
-from models.base_model import BaseModel
+from base_model import BaseModel
 
 
 class State(BaseModel):

@@ -2,8 +2,6 @@
 """This is the base module of our classes."""
 import uuid
 from datetime import datetime
-import sys
-import models
 
 
 class BaseModel():
