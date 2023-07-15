@@ -12,19 +12,19 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def emptyline(self):
-        """handles empty inputs"""
+        """handles empty inputs\n"""
         pass
 
     def do_EOF(self, arg):
-        """This method is for end of the file."""
+        """This method is for end of the file.\n"""
         return True
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """Quit command to exit the program\n"""
         quit()
 
     def do_create(self, arg):
-        """Creates a new instance of classes."""
+        """Creates a new instance of classes.\n"""
         args = arg.split()
         for argss in args:
             if argss not in HBNBCommand.valid_classes:
@@ -39,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
 
     def do_show(self, arg):
-        """Prints the representation of an instance based on the class name"""
+        """Prints the representation of an instance based on the class name\n"""
         args = arg.split()
         if len(args) < 1:
             print("** class name missing **")
@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_destroy(self, arg):
-        """Deletes an instance based on the class name and id"""
+        """Deletes an instance based on the class name and id\n"""
         args = arg.split()
         if len(args) < 1:
             print("** class name missing **")
@@ -89,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representation of all
-        instances based or not on the class name"""
+        instances based or not on the class name\n"""
         args = arg.split()
         for argss in args:
             if argss not in HBNBCommand.valid_classes:
@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id by
-        adding or updating attribute (save the change into the JSON file)"""
+        adding or updating attribute (save the change into the JSON file)\n"""
         args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
