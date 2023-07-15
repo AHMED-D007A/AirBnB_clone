@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """this is the City module."""
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class City(BaseModel):
