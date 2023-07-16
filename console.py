@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This is a module for CLI"""
 import cmd
+import json
 from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
@@ -145,46 +146,60 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
 
-    def do_User(self, args):
+    def do_count(self, arg):
+        """count the number of existed instance."""
+        args = arg.split()
+        cownter = 0
+        with open('file.json', 'r') as json_file:
+            data = json.load(json_file)
+        for key_id in data:
+            key = key_id.split(".")
+            if key[0] == args[0]:
+                cownter += 1
+        print(cownter)
+
+    def do_User(self, arg):
         """Usages: User.<method_name>()."""
-        self.class_exec('User', args)
+        self.class_exec('User', arg)
 
-    def do_BaseModel(self, args):
+    def do_BaseModel(self, arg):
         """Usages: BaseModel.<method_name>()."""
-        self.class_exec('BaseModel', args)
+        self.class_exec('BaseModel', arg)
 
-    def do_State(self, args):
+    def do_State(self, arg):
         """Usages: State.<method_name>()."""
-        self.class_exec('State', args)
+        self.class_exec('State', arg)
 
-    def do_City(self, args):
+    def do_City(self, arg):
         """Usages: City.<method_name>()."""
-        self.class_exec('City', args)
+        self.class_exec('City', arg)
 
-    def do_Amenity(self, args):
+    def do_Amenity(self, arg):
         """Usages: Amentiy.<method_name>()."""
-        self.class_exec('Amenity', args)
+        self.class_exec('Amenity', arg)
 
-    def do_Place(self, args):
+    def do_Place(self, arg):
         """Usages: Place.<method_name>()."""
-        self.class_exec('Place', args)
+        self.class_exec('Place', arg)
 
-    def do_Review(self, args):
+    def do_Review(self, arg):
         """Usages: Review.<method_name>()."""
-        self.class_exec('Review', args)
+        self.class_exec('Review', arg)
 
-    def class_exec(self, cls_name, args):
+    def class_exec(self, cls_name, arg):
         """Wrapper function for <class name>.action()"""
-        if args[:6] == '.all()':
+        if arg[:6] == '.all()':
             self.do_all(cls_name)
-        elif args[:6] == '.show(':
-            self.do_show(cls_name + ' ' + args[7:-2])
-        elif args[:8] == ".count()":
+        if arg[:8] == '.count()':
+            self.do_count(cls_name)
+        elif arg[:6] == '.show(':
+            self.do_show(cls_name + ' ' + arg[7:-2])
+        elif arg[:8] == ".count()":
             all_objs = {k: v for (k, v) in storage.all().items()
                         if isinstance(v, eval(cls_name))}
             print(len(all_objs))
-        elif args[:9] == '.destroy(':
-            self.do_destroy(cls_name + ' ' + args[10:-2])
+        elif arg[:9] == '.destroy(':
+            self.do_destroy(cls_name + ' ' + arg[10:-2])
         else:
             print("Not a valid command")
 
