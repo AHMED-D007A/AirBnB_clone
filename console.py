@@ -185,27 +185,6 @@ class HBNBCommand(cmd.Cmd):
             print(len(all_objs))
         elif args[:9] == '.destroy(':
             self.do_destroy(cls_name + ' ' + args[10:-2])
-        elif args[:8] == '.update(':
-            if '{' in args and '}' in args:
-                new_arg = args[8:-1].split('{')
-                new_arg[1] = '{' + new_arg[1]
-            else:
-                new_arg = args[8:-1].split(',')
-            if len(new_arg) == 3:
-                new_arg = " ".join(new_arg)
-                new_arg = new_arg.replace("\"", "")
-                new_arg = new_arg.replace("  ", " ")
-                self.do_update(cls_name + ' ' + new_arg)
-            elif len(new_arg) == 2:
-                try:
-                    dict = eval(new_arg[1])
-                except:
-                    return
-                for j in dict.keys():
-                    self.do_update(cls_name + ' ' + new_arg[0][1:-3] + ' ' +
-                                   str(j) + ' ' + str(dict[j]))
-            else:
-                return
         else:
             print("Not a valid command")
 
