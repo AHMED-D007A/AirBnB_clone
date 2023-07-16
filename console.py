@@ -23,7 +23,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """This method is for end of the file.\n"""
-        print("")
         return True
 
     def do_quit(self, arg):
@@ -145,6 +144,12 @@ class HBNBCommand(cmd.Cmd):
         if switch != 1:
             print("** no instance found **")
             return
+
+    def help_quit(self):
+        print("Quit command to exit the program")
+
+    def help_EOF(self):
+        print("CTRL + D (EOF) to exit the program")
 
 
 if __name__ == '__main__':
