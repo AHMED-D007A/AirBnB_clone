@@ -6,7 +6,7 @@ from models.city import City
 
 class Test_CityModel(unittest.TestCase):
     """
-    Test the city model class
+    Test the city model class.
     """
 
     def setUp(self):

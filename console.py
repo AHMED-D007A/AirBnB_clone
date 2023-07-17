@@ -13,7 +13,7 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """This is CLI can be used to do operations(CRUD) on the site."""
+    """This is CLI can be used to do operations(CRUD) on the site"""
     valid_classes = ["BaseModel", "User", "State", "Review",
                      "Place", "City", "Amenity"]
     prompt = "(hbnb) "
